@@ -10,11 +10,11 @@ public class MachineryTest
     [Fact]
     public void Constructor_ValidCommand_PropertiesAreSet()
     {
-        var command = new CreateMachineryCommand(  "Tractor", 1000, "http://example.com/tractor.jpg");
+        var command = new CreateMachineryCommand(  "Tractor", 1000, "https://example.com/tractor.jpg");
         var machinery = new Machinery(command);
         Assert.Equal("Tractor", machinery.Name);
         Assert.Equal(1000, machinery.Price);
-        Assert.Equal("http://example.com/tractor.jpg", machinery.ImageUrl);
+        Assert.Equal("https://example.com/tractor.jpg", machinery.ImageUrl);
     }
 
     [Fact]
