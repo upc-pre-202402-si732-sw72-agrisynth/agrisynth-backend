@@ -41,7 +41,7 @@ public class ResourceItemCommandServiceTest
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal("Test Should Fail", result.Name);
+        Assert.Equal("Test Item", result.Name);
         Assert.Equal(10, result.Quantity);
         Assert.Equal("Type1", result.Type);
         Assert.Same(resourceItemCaptured, result);
