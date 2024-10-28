@@ -28,7 +28,9 @@ public class TerrainCommandServiceTests
     public async Task Handle_CreateTerrainCommand_ShouldCreateTerrain()
     {
         // Arrange
-        var command = new CreateTerrainCommand ("Test Landrental Terrain" );
+        var command = new CreateTerrainCommand("Test Landrental Terrain", "Test Landrental Terrain Description",
+            "Test Landrental Terrain Location", "Test Landrental Terrain Size", 100,
+            1200, "Test Landrental Terrain Soil Moisture");
         var terrain = new Terrain(command);
 
         // Act
@@ -45,7 +47,9 @@ public class TerrainCommandServiceTests
     public async Task Handle_CreateTerrainCommand_ShouldReturnNull_WhenExceptionOccurs()
     {
         // Arrange
-        var command = new CreateTerrainCommand("Test Terrain");
+        var command = new CreateTerrainCommand("Test Landrental Terrain", "Test Landrental Terrain Description",
+            "Test Landrental Terrain Location", "Test Landrental Terrain Size", 100,
+            1200, "Test Landrental Terrain Soil Moisture");;
         _terrainRepositoryMock.Setup(repo => repo.AddAsync(It.IsAny<Terrain>())).ThrowsAsync(new Exception("Database error"));
 
         // Act

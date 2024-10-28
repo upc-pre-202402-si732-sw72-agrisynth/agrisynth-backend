@@ -30,8 +30,12 @@ public class TerrainQueryServiceTests
             // Arrange
             var terrains = new List<Terrain>
             {
-                new Terrain("Terrain 1"),
-                new Terrain("Terrain 2")
+                new Terrain(new CreateTerrainCommand("Test Landrental Terrain", "Test Landrental Terrain Description",
+                    "Test Landrental Terrain Location", "Test Landrental Terrain Size", 100,
+                    1200, "Test Landrental Terrain Soil Moisture")),
+                new Terrain(new CreateTerrainCommand("Test Landrental Terrain 2", "Test Landrental Terrain Description 2",
+                    "Test Landrental Terrain Location 2", "Test Landrental Terrain Size 2", 200,
+                    2400, "Test Landrental Terrain Soil Moisture 2"))
             };
             _terrainRepositoryMock.Setup(repo => repo.ListAsync()).ReturnsAsync(terrains);
 
@@ -46,7 +50,9 @@ public class TerrainQueryServiceTests
         public async Task Handle_GetTerrainByIdQuery_ShouldReturnTerrain()
         {
             // Arrange
-            var terrain = new Terrain("Test Terrain");
+            var terrain = new Terrain(new CreateTerrainCommand("Test Terrain", "Test Terrain Description",
+                "Test Terrain Location", "Test Terrain Size", 100,
+                1200, "Test Terrain Soil Moisture"));
             _terrainRepositoryMock.Setup(repo => repo.FindByIdAsync(1)).ReturnsAsync(terrain);
 
             // Act
