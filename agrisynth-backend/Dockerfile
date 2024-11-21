@@ -17,5 +17,6 @@ ENV ASPNETCORE_ENVIRONMENT=Production
 
 EXPOSE 80
 EXPOSE 443
+EXPOSE 8080
 
 ENTRYPOINT ["dotnet", "agrisynth-backend.dll"]
