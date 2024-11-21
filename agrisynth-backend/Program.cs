@@ -57,6 +57,8 @@ builder.Services.AddControllers(options => options.Conventions.Add(new KebabCase
 // Add Database Connection
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
+Console.WriteLine($"Connection String: {connectionString}");
+
 builder.Services.AddDbContext<AppDbContext>(
     options =>
     {
@@ -195,14 +197,6 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
     var context = services.GetRequiredService<AppDbContext>();
     context.Database.EnsureCreated();
-}
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    DotNetEnv.Env.Load("./env.development");
-    app.UseSwagger();
-    app.UseSwaggerUI();
 }
 
 app.UseSwagger();
