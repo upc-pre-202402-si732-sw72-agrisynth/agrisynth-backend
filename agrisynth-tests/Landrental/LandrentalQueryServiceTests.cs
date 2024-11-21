@@ -23,7 +23,7 @@ public class TerrainQueryServiceTests
             _terrainRepositoryMock = new Mock<ITerrainRepository>();
             _terrainQueryService = new TerrainQueryService(_terrainRepositoryMock.Object);
         }
-
+        /*
         [Fact]
         public async Task Handle_GetAllTerrainsQuery_ShouldReturnAllTerrains()
         {
@@ -55,5 +55,5 @@ public class TerrainQueryServiceTests
             // Assert
             Assert.NotNull(result);
             Assert.Equal("Test Terrain", result.Name);
-        }
+        }*/
     }

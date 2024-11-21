@@ -23,12 +23,21 @@ public class TerrainCommandServiceTests
         _unitOfWorkMock = new Mock<IUnitOfWork>();
         _terrainCommandService = new TerrainCommandService(_terrainRepositoryMock.Object, _unitOfWorkMock.Object);
     }
-
+    
+    
     [Fact]
     public async Task Handle_CreateTerrainCommand_ShouldCreateTerrain()
     {
         // Arrange
-        var command = new CreateTerrainCommand ("Test Landrental Terrain" );
+        var command = new CreateTerrainCommand (
+            "Test Landrental Terrain",
+            "Test Landrental Terrain",
+            "Lima",
+            "Lima",
+            1,
+            1,
+            "Test Landrental Terrain"
+            );
         var terrain = new Terrain(command);
 
         // Act
@@ -45,7 +54,15 @@ public class TerrainCommandServiceTests
     public async Task Handle_CreateTerrainCommand_ShouldReturnNull_WhenExceptionOccurs()
     {
         // Arrange
-        var command = new CreateTerrainCommand("Test Terrain");
+        var command = new CreateTerrainCommand(
+            "Test Landrental Terrain",
+            "Test Landrental Terrain",
+            "Lima",
+            "Lima",
+            1,
+            1,
+            "Test Landrental Terrain"
+            );
         _terrainRepositoryMock.Setup(repo => repo.AddAsync(It.IsAny<Terrain>())).ThrowsAsync(new Exception("Database error"));
 
         // Act

@@ -1,7 +1,7 @@
 ﻿namespace agrisynth_tests.IAM;
 
 using agrisynth_backend.IAM.Infrastructure.Hashing.BCrypt.Services;
-using Xunit;
+using Xunit; 
 using Assert = Xunit.Assert;
 
 public class HashingServiceTests
