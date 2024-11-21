@@ -26,7 +26,13 @@ public class ResourceItemCommandServiceTest
     public async Task Handle_CreateResourceItemCommand_ShouldReturnResourceItem()
     {
         // Arrange
-        var command = new CreateResourceItemCommand("Test Item", 10, "Type1", "10.00", "15.00", "imageUrl");
+        var command = new CreateResourceItemCommand(
+            "Test Item", 
+            10,
+            "Type1",
+            "10.00", 
+            "15.00", 
+            "imageUrl");
         ResourceItem? resourceItemCaptured = null;
 
         _resourceItemRepositoryMock
@@ -41,7 +47,7 @@ public class ResourceItemCommandServiceTest
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal("Test Should Fail", result.Name);
+        Assert.Equal("Test Item", result.Name);
         Assert.Equal(10, result.Quantity);
         Assert.Equal("Type1", result.Type);
         Assert.Same(resourceItemCaptured, result);

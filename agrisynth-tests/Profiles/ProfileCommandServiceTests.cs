@@ -26,7 +26,14 @@ namespace agrisynth_tests.Profiles
         public async Task Handle_CreateProfileCommand_SuccessfullyCreatesProfile()
         {
             // Arrange
-            var command = new CreateProfileCommand("John", "Doe", "johndoe", "john@example.com", 1, "123456789", "ID123");
+            var command = new CreateProfileCommand(
+                "John", 
+                "Doe", 
+                "johndoe", 
+                "john@example.com", 
+                1, 
+                "123456789", 
+                "ID123");
             var profile = new Profile(command);
 
             _mockProfileRepository.Setup(repo => repo.AddAsync(It.IsAny<Profile>())).Returns(Task.CompletedTask);
